@@ -10,11 +10,13 @@ namespace SearchFight
     {
         static void Main(string[] args)
         {
+            SanitizerService Sanitizer = new SanitizerService();
+            string[] CheckedArgs = Sanitizer.SanitizeArgs(args);
             SearchEngineGroup EngineGroup = new SearchEngineGroup();
-            SearchStatsService SearchResults = new SearchStatsService(args, EngineGroup.SearchEngines);
+            SearchStatsService SearchResults = new SearchStatsService(CheckedArgs, EngineGroup.SearchEngines);
             OutputFormatService Output = new OutputFormatService();
 
-            if(args.Length < 1)
+            if(CheckedArgs.Length < 1)
             {
                 Console.WriteLine("SearchFight | error: You must enter at least 1 language");
                 return;
@@ -22,7 +24,7 @@ namespace SearchFight
 
             Parallel.ForEach(EngineGroup.SearchEngines, engine =>
             {
-                foreach (string language in args)
+                foreach (string language in CheckedArgs)
                 {
                     SearchResults.UpdateStat(engine.Search(language));
                 }

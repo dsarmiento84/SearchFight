@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Linq;
 
 namespace SearchFight.Services
 {
     class SanitizerService
     {
+        public string[] SanitizeArgs(string[] rawArgs)
+        {
+            return rawArgs.Distinct().ToArray();
+        }
+
         public string SanitizeInput(string raw)
         {
             return Uri.EscapeDataString(raw);
