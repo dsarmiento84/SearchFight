@@ -1,13 +1,11 @@
 # SearchFight
-Programming challenge por Cignium Technologies. The application will query search engines for each input term. The application will show the number of results by engine and term, the winners by engine and the total winner.
+Programming challenge for Cignium Technologies. The application will query search engines for each entered term. The application will show the number of results by term and engine, the winners by engine and the total winner.
 
 ## Instructions
 In order to use the application, just enter the terms you want to search with the different configured search engines. Term with spaces have to be between double quotes ("term").
 
 ```
 C:\> searchfight.exe .net java
-```
-```
 .net: Google: 4450000000 MSN Search: 12354420
 java: Google: 966000000 MSN Search: 94381485
 Google winner: .net
